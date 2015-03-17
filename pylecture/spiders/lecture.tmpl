@@ -1,0 +1,33 @@
+# coding=utf8
+
+import scrapy
+from datetime import datetime
+from pylecture.items import PylectureItem
+from scrapy import log
+from scrapy.contrib.spiders import CrawlSpider
+from scrapy.http import Request
+
+
+class {{spider.name}}Spider(CrawlSpider):
+    """
+        {{ spider.description }}
+    """
+    sid = {{spider.id}}
+    name = '{{spider.name}}'
+    domain = '{{spider.domain}}'
+    start_urls = ['{{spider.start_url}}']
+
+    def parse(self, response):
+        log.msg('URL')
+        for url in response.xpath('{{spider.url_rules}}').extract():
+            if self.domain not in url:
+                url = self.domain + url
+            yield Request(url, callback=self.parse_item)
+
+    def parse_item(self, response):
+        log.msg("Print")
+        i = PylectureItem()
+        {% for k, v in spider.rules.items() %}
+        i['{{k}}'] = ''.join(response.xpath('{{v}}').css('::text').extract())
+        {% endfor %}
+        return i
