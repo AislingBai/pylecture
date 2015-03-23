@@ -4,7 +4,7 @@ from optparse import OptionParser
 from flask import Flask, render_template, json, request, redirect, url_for
 from flask.json import jsonify
 from flask_bootstrap import Bootstrap
-from gevent.pywsgi import WSGIServer
+# from gevent.pywsgi import WSGIServer
 
 from pylecture import app
 from pylecture.utils import gen_spider
@@ -21,8 +21,7 @@ def cmd():
 
     if len(args) == 0:
         app.run(host='localhost', port=8000)
-
-    if args[0] == 'gen':
+    elif args[0] == 'gen':
         print gen_spider(1, dest='pylecture/spiders/sues.py')
     elif args[0] == 'build':
         init_db()

@@ -2,10 +2,13 @@
 
 " Package Init "
 
+import os
+import sys
 from flask import Flask
-from views import create_app
 
 app = Flask(__name__)
 app.debug = True
 app.secret_key = 'secret'
+
+from views import create_app
 app = create_app(app)

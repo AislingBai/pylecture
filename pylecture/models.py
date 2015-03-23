@@ -2,8 +2,8 @@
 
 import os
 from flask_sqlalchemy import SQLAlchemy
-from pylecture import app
-from settings import DB_SAVE_PATH 
+from . import app
+from settings import DB_SAVE_PATH
 
 app.config.update({
     'SQLALCHEMY_DATABASE_URI': 'sqlite:///' + DB_SAVE_PATH,
@@ -12,7 +12,7 @@ db = SQLAlchemy(app)
 
 
 class Spider(db.Model):
-    """ 爬虫基本信息管理 """
+    """ 爬虫基本信息管理 """   """写提交页面，提交Spider和LectureRules除了id之外的所有信息"""
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(40), unique=True, doc=u'名字')
     domain = db.Column(db.String(100), doc=u'允许的域')
