@@ -1,0 +1,15 @@
+/* Custom stylesheet
+ * Author: Yufei Li
+ * Date: 2015-03-10 08:17:36
+ * 
+ */
+
+.bounceInLeft, .bounceInRight, .fadeInUp, .fadeInUpDelay, .fadeInDown, .fadeInUp, .fadeInLeft, .fadeInRight { visibility: visible; }
+.delay-05s { animation-delay: 0.5s; -webkit-animation-delay: 0.5s; }
+.delay-1s { animation-delay: 1s; -webkit-animation-delay: 1s; }
+.delay-1-5s { animation-delay: 1.5s; -webkit-animation-delay: 1.5s; }
+.delay-2s { animation-delay: 2s; -webkit-animation-delay: 2s; }
+.delay-2-5s { animation-delay: 2.5s; -webkit-animation-delay: 2.5s; }
+.delay-3s { animation-delay: 3s; -webkit-animation-delay: 3s; }
+.delay-3-5s { animation-delay: 3.5s; -webkit-animation-delay: 3.5s; }
+.delay-4s { animation-delay: 4s; -webkit-animation-delay: 4s; }

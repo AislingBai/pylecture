@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% import "wtf.html" as wtf %}
+
+{% block style %}
+
+label {
+    font-size: 18px;
+}
+
+.control-label {
+    margin-top: 15px;
+}
+
+.small-banner {
+    margin: 0;
+    color: #fff;
+    text-shadow: 1px 1px 1px;
+    text-align: center;
+    background-color: #2c3e50;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    min-height: 180px;
+}
+
+.small-banner h1 {
+    font-size: 60px;
+}
+
+.hor {
+    padding-bottom: 5vh;
+    background: url("/static/image/line.png") no-repeat scroll center bottom transparent;
+    margin-bottom: 2vh;
+}
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h1 class="hor text-center">小额信贷自主评估数据申报表</h1>
+    <h4 class="text-center"><small>也许您希望直接查看我们已填写好的<a href="http://mc.thxminds.com/report?key=mPHV3KdBfRwEoeTNaCwQb8XB0g9zUZtkB5z17x5UaH">样例报表</a><small></h4>
+    {% for key, error in form.errors.items() %}
+        <p class="lead">{{ error }}</p>
+    {% endfor %}
+    {{ wtf.quick_form(form, action='/edit', button_map={'submit': 'primary'}) }}
+</div>
+
+{% endblock %}
+
+{% block footer %}
+<hr />
+{% endblock %}
